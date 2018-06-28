@@ -13,7 +13,8 @@ export default class NavEntry extends React.Component {
         return (
             <li className="nav-item NavEntry">
                 <Link to={this.state.url} className="nav-link">
-                    <i className={this.state.icon}></i><span> {this.state.title}</span>
+                    {this.state.icon ? <i className={this.state.icon}></i>: ''}
+                    <span>{this.state.title}</span>
                 </Link>
             </li>
         );

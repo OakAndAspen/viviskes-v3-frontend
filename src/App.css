@@ -1,0 +1,17 @@
+a {
+    color: #cdb8a1;
+}
+
+a:hover {
+    color: #cdb8a1;
+    text-decoration: underline;
+}
+
+header img {
+    max-width: 1000px;
+}
+
+footer #footerContent{
+    background-color: black;
+    color: #cdb8a1;
+}

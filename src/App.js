@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Loadable from 'react-loadable';
-//import './App.css';
+import './App.css';
 import Nav from "./components/Nav";
 
 const Loading = () => <div>Loading...</div>;
@@ -30,28 +30,23 @@ const Contact = Loadable({
 let entries = [
     {
         "url": "/",
-        "title": "Accueil",
-        "icon": "fas fa-search"
+        "title": "Accueil"
     },
     {
         "url": "/association",
-        "title": "L'association",
-        "icon": "fas fa-copy"
+        "title": "L'association"
     },
     {
         "url": "/histoire-vivante",
-        "title": "Histoire vivante",
-        "icon": "fas fa-copy"
+        "title": "Histoire vivante"
     },
     {
         "url": "/galerie",
-        "title": "Galerie",
-        "icon": "fas fa-copy"
+        "title": "Galerie"
     },
     {
         "url": "/contact",
-        "title": "Contact",
-        "icon": "fas fa-copy"
+        "title": "Contact"
     }
 ];
 
@@ -59,7 +54,10 @@ class App extends Component {
     render() {
         return (
             <Router>
-                <div className="App">
+                <div id="App">
+                    <header className="text-center p-3">
+                        <img src="images/banner.svg"/>
+                    </header>
                     <Nav entries={entries}/>
                     <section className="container">
                         <Switch>
@@ -70,6 +68,37 @@ class App extends Component {
                             <Route path="/contact" component={Contact}/>
                         </Switch>
                     </section>
+                    <footer className="text-center">
+                        <div id="footerImage">
+                            <img src="images/footer.png" height="200"/>
+                        </div>
+                        <div id="footerContent">
+                            <div className="container">
+                                <div className="row text-left">
+                                    <div className="col-md-6">
+                                        <h4>Contactez-nous!</h4>
+                                        <p>
+                                            viviskes@gmail.com<br/>
+                                            CCP: 12-812812-7<br/>
+                                            IBAN: CH43 0900 0000 1281 2812 7
+                                        </p>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <h4>Liens utiles</h4>
+                                        <p>
+                                            <a href="/intranet">Intranet</a><br/>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="row text-center">
+                                    <div className="col-12">
+                                        <hr/>
+                                        <p>Copyright OakAndAspen 2018 | irinadespot@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
                 </div>
             </Router>
         );
