@@ -1,0 +1,23 @@
+.NavEntry {
+    cursor: pointer;
+    width: 100%;
+}
+
+.NavEntry:hover {
+    background: #2B2F38;
+}
+
+.NavEntry a {
+    font-variant: all-small-caps;
+    color: inherit;
+}
+
+.NavEntry i {
+    width: 20px;
+    text-align: center;
+    margin-right: 3px;
+}
+
+.NavEntry span {
+    color: white;
+}
