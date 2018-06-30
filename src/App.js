@@ -1,33 +1,54 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Loadable from 'react-loadable';
 import './App.css';
 import Nav from "./components/Nav";
 
 const Loading = () => <div>Loading...</div>;
 
-const Home = Loadable({
-    loader: () => import('./routes/Home'),
-    loading: Loading,
-});
-const Association = Loadable({
-    loader: () => import('./routes/Association'),
-    loading: Loading,
-});
-const Blog = Loadable({
-    loader: () => import('./routes/Blog'),
-    loading: Loading,
-});
-const Gallery = Loadable({
-    loader: () => import('./routes/Gallery'),
-    loading: Loading,
-});
-const Contact = Loadable({
-    loader: () => import('./routes/Contact'),
-    loading: Loading,
-});
+let publicPages = {
+    Home: Loadable({
+        loader: () => import('./routes/public/Home'),
+        loading: Loading,
+    }),
+    Association: Loadable({
+        loader: () => import('./routes/public/Association'),
+        loading: Loading,
+    }),
+    Blog: Loadable({
+        loader: () => import('./routes/public/Blog'),
+        loading: Loading,
+    }),
+    Gallery: Loadable({
+        loader: () => import('./routes/public/Gallery'),
+        loading: Loading,
+    }),
+    Contact: Loadable({
+        loader: () => import('./routes/public/Contact'),
+        loading: Loading,
+    })
+};
 
-let entries = [
+let privatePages = {
+    Members: Loadable({
+        loader: () => import('./routes/private/Members'),
+        loading: Loading,
+    }),
+    Calendar: Loadable({
+        loader: () => import('./routes/private/Calendar'),
+        loading: Loading,
+    }),
+    Forum: Loadable({
+        loader: () => import('./routes/private/Forum'),
+        loading: Loading,
+    }),
+    Profile: Loadable({
+        loader: () => import('./routes/private/Profile'),
+        loading: Loading,
+    }),
+};
+
+let publicNav = [
     {
         "url": "/",
         "title": "Accueil"
@@ -50,6 +71,25 @@ let entries = [
     }
 ];
 
+let privateNav = [
+    {
+        "url": "/intranet/membres",
+        "title": "Membres"
+    },
+    {
+        "url": "/intranet/calendrier",
+        "title": "Calendrier"
+    },
+    {
+        "url": "/intranet/forum",
+        "title": "Forum"
+    },
+    {
+        "url": "/intranet/profil",
+        "title": "Profil"
+    }
+];
+
 class App extends Component {
     render() {
         return (
@@ -58,15 +98,21 @@ class App extends Component {
                     <header className="text-center p-3">
                         <img src="images/banner.svg"/>
                     </header>
-                    <Nav entries={entries}/>
+                    <Nav entries={publicNav}/>
                     <section className="pb-3">
                         <div className="container">
                             <Switch>
-                                <Route exact path="/" component={Home}/>
-                                <Route path="/association" component={Association}/>
-                                <Route path="/histoire-vivante" component={Blog}/>
-                                <Route path="/galerie" component={Gallery}/>
-                                <Route path="/contact" component={Contact}/>
+                                {/* ---------- Public pages ----------*/}
+                                <Route exact path="/" component={publicPages.Home}/>
+                                <Route path="/association" component={publicPages.Association}/>
+                                <Route path="/histoire-vivante" component={publicPages.Blog}/>
+                                <Route path="/galerie" component={publicPages.Gallery}/>
+                                <Route path="/contact" component={publicPages.Contact}/>
+                                {/* ---------- Public pages ----------*/}
+                                <Route path="/intranet/membres" component={privatePages.Members}/>
+                                <Route path="/intranet/calendrier" component={privatePages.Calendar}/>
+                                <Route path="/intranet/forum" component={privatePages.Forum}/>
+                                <Route path="/intranet/profil" component={privatePages.Profile}/>
                             </Switch>
                         </div>
                     </section>
@@ -88,14 +134,15 @@ class App extends Component {
                                     <div className="col-md-6">
                                         <h4>Liens utiles</h4>
                                         <p>
-                                            <a href="/intranet">Intranet</a><br/>
+                                            <Link to="/intranet/forum">Intranet</Link>
                                         </p>
                                     </div>
                                 </div>
                                 <div className="row text-center">
                                     <div className="col-12">
                                         <hr/>
-                                        <p>Copyright OakAndAspen 2018 | irinadespot@gmail.com</p>
+                                        <p>Copyright © {(new Date()).getFullYear()} Irina Despot <br/>
+                                            Design par Jonathan Schaffner</p>
                                     </div>
                                 </div>
                             </div>

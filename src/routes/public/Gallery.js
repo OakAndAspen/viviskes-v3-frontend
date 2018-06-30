@@ -1,6 +1,6 @@
 import React from 'react';
-import AlbumCard from "../components/AlbumCard";
-import Carousel from "../components/Carousel";
+import AlbumCard from "../../components/AlbumCard";
+import Carousel from "../../components/Carousel";
 
 export default class Gallery extends React.Component {
     render() {

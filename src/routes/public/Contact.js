@@ -1,6 +1,6 @@
 import React from 'react';
-import ContactForm from "../components/ContactForm";
-import "../components/CustomTab.css";
+import ContactForm from "../../components/ContactForm";
+import "../../components/CustomTab.css";
 
 export default class Contact extends React.Component {
     render() {

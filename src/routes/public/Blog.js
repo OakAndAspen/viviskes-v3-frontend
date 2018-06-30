@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Blog.css";
-import ArticleCard from "../components/ArticleCard";
+import ArticleCard from "../../components/ArticleCard";
 
 export default class Blog extends React.Component {
     render() {

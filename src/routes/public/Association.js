@@ -1,5 +1,5 @@
 import React from 'react';
-import "../components/CustomTab.css"
+import "../../components/CustomTab.css"
 
 export default class Association extends React.Component {
     render() {
