@@ -1,0 +1,7 @@
+#BlogTags {
+    font-size: 20px;
+}
+
+#BlogTags .badge {
+    cursor: pointer;
+}

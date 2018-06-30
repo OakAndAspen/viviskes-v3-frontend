@@ -66,7 +66,7 @@ export default class Association extends React.Component {
                                 capacité de développer sa passion pour l’Antiquité celtique.</p>
                         </div>
                         <div className="tab-pane" id="members" role="tabpanel" aria-labelledby="members-tab">
-                            <h1>Nos membres</h1>
+                            <p>/api/users</p>
                         </div>
                     </div>
                 </div>
