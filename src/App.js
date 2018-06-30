@@ -59,14 +59,16 @@ class App extends Component {
                         <img src="images/banner.svg"/>
                     </header>
                     <Nav entries={entries}/>
-                    <section className="container">
-                        <Switch>
-                            <Route exact path="/" component={Home}/>
-                            <Route path="/association" component={Association}/>
-                            <Route path="/histoire-vivante" component={Blog}/>
-                            <Route path="/galerie" component={Gallery}/>
-                            <Route path="/contact" component={Contact}/>
-                        </Switch>
+                    <section className="pb-3">
+                        <div className="container">
+                            <Switch>
+                                <Route exact path="/" component={Home}/>
+                                <Route path="/association" component={Association}/>
+                                <Route path="/histoire-vivante" component={Blog}/>
+                                <Route path="/galerie" component={Gallery}/>
+                                <Route path="/contact" component={Contact}/>
+                            </Switch>
+                        </div>
                     </section>
                     <footer className="text-center">
                         <div id="footerImage">

@@ -1,0 +1,15 @@
+#AssociationTab .nav-link {
+    border-color: #444444;
+    border-width: 0 0 1px 0;
+    color: black;
+    font-size: 20px;
+}
+
+#AssociationTab .nav-link:hover, #AssociationTab .nav-link.active:hover {
+    background-color: rgba(255,255,255, 0.2);
+}
+
+#AssociationTab .nav-link.active {
+    background-color: transparent;
+    border-width: 1px 1px 0 1px;
+}
