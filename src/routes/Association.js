@@ -1,12 +1,12 @@
 import React from 'react';
-import "./Association.css"
+import "../components/CustomTab.css"
 
 export default class Association extends React.Component {
     render() {
         return (
             <div className="row">
                 <div className="col-12">
-                    <ul className="nav nav-tabs my-4 nav-fill" id="AssociationTab" role="tablist">
+                    <ul className="nav nav-tabs my-4 nav-fill" id="CustomTab" role="tablist">
                         <li className="nav-item">
                             <a className="nav-link active" id="about-us-tab" data-toggle="tab" href="#about-us">
                                 Qui sommes-nous?</a>
@@ -20,9 +20,8 @@ export default class Association extends React.Component {
                                 Nos membres</a>
                         </li>
                     </ul>
-                    <div className="tab-content" id="myTabContent">
-                        <div className="tab-pane show active" id="about-us" role="tabpanel"
-                             aria-labelledby="about-us-tab">
+                    <div className="tab-content">
+                        <div className="tab-pane show active" id="about-us">
                             <p>Viviskes est avant tout la rencontre de quelques quarante passionnés de l’Antiquité
                                 celtique venant de divers horizons pour reconstituer la vie quotidienne et guerrière des
                                 Celtes de la période laténienne (450-50 av. J.-C.). Ces objectifs sont atteints grâce à
@@ -42,7 +41,7 @@ export default class Association extends React.Component {
                                 s’est construite sur le long terme entre tous nos membres et reste une formidable
                                 aventure humaine et (proto)historique!</p>
                         </div>
-                        <div className="tab-pane" id="goals" role="tabpanel" aria-labelledby="goals-tab">
+                        <div className="tab-pane" id="goals">
                             <p>Passionnés par l’Antiquité celte, nous cherchons à reconstituer le plus fidèlement
                                 l’équipement, l’armement et le costume et les pratiques guerrières celtes. Il s’agit
                                 d’une part de développer et de maintenir une exigence d’historicité de la part de nos
@@ -65,7 +64,7 @@ export default class Association extends React.Component {
                                 et surtout de donner à tout membre de l’association, quel que soit son bagage, la
                                 capacité de développer sa passion pour l’Antiquité celtique.</p>
                         </div>
-                        <div className="tab-pane" id="members" role="tabpanel" aria-labelledby="members-tab">
+                        <div className="tab-pane" id="members">
                             <p>/api/users</p>
                         </div>
                     </div>
