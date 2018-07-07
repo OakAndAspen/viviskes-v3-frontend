@@ -48,49 +48,18 @@ let privatePages = {
     }),
 };
 
-let publicNav = [
-    {
-        "url": "/",
-        "title": "Accueil"
-    },
-    {
-        "url": "/association",
-        "title": "L'association"
-    },
-    {
-        "url": "/histoire-vivante",
-        "title": "Histoire vivante"
-    },
-    {
-        "url": "/galerie",
-        "title": "Galerie"
-    },
-    {
-        "url": "/contact",
-        "title": "Contact"
-    }
-];
-
-let privateNav = [
-    {
-        "url": "/intranet/membres",
-        "title": "Membres"
-    },
-    {
-        "url": "/intranet/calendrier",
-        "title": "Calendrier"
-    },
-    {
-        "url": "/intranet/forum",
-        "title": "Forum"
-    },
-    {
-        "url": "/intranet/profil",
-        "title": "Profil"
-    }
-];
-
 class App extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            scope: 'private',
+            loggedIn: false,
+            admin: true
+        };
+    }
+
     render() {
         return (
             <Router>
@@ -98,7 +67,7 @@ class App extends Component {
                     <header className="text-center p-3">
                         <img src="images/banner.svg"/>
                     </header>
-                    <Nav entries={publicNav}/>
+                    <Nav scope={this.state.scope} loggedIn={this.state.loggedIn} admin={this.state.admin}/>
                     <section className="pb-3">
                         <div className="container">
                             <Switch>
