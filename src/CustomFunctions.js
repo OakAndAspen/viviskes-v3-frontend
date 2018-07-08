@@ -8,6 +8,8 @@ export default {
                 return a[orderBy].localeCompare(b[orderBy]);
             } else return a[orderBy] - b[orderBy];
         });
+
+        if(!asc) return array.reverse();
         return array;
     }
 }

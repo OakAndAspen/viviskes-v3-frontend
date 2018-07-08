@@ -1,0 +1,17 @@
+.TButton {
+    background-color: transparent;
+    border-color: #666666;
+    color: #666666;
+    font-variant: all-small-caps;
+    font-size: 20px;
+}
+
+.TButton.active {
+    background-color: rgba(50,50,50,0.2);
+}
+
+.TButton:hover {
+    background-color: #666666;
+    color: white;
+}
+
