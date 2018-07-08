@@ -5,7 +5,7 @@ export default class Home extends React.Component {
         return (
             <div className="row">
                 <div className="col-12 my-3">
-                    <img src="images/divers/groupPhoto.png" className="img-fluid"/>
+                    <img src="images/divers/groupPhoto.png" className="img-fluid" alt="Viviskes"/>
                 </div>
                 <div className="col-md-8">
                     <h1>Présentation</h1>

@@ -1,6 +1,4 @@
 import React from "react";
-import {Link} from 'react-router-dom';
-import "./NavEntry.css";
 
 export default class ContactForm extends React.Component {
 

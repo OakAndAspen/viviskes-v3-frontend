@@ -65,7 +65,7 @@ class App extends Component {
             <Router>
                 <div id="App">
                     <header className="text-center p-3">
-                        <img src="images/banner.svg"/>
+                        <img src="images/banner.svg" alt="Bannière"/>
                     </header>
                     <Nav scope={this.state.scope} loggedIn={this.state.loggedIn} admin={this.state.admin}/>
                     <section className="pb-3">
@@ -87,7 +87,7 @@ class App extends Component {
                     </section>
                     <footer className="text-center">
                         <div id="footerImage">
-                            <img src="images/footer.png" height="200"/>
+                            <img src="images/footer.png" height="200" alt="Footer"/>
                         </div>
                         <div id="footerContent">
                             <div className="container">

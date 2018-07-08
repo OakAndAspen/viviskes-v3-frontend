@@ -73,7 +73,7 @@ export default class Contact extends React.Component {
                                 jeudi à partir de 18h00.</p>
                         </div>
                         <div className="tab-pane" id="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6536.675380871455!2d6.849338535090632!3d46.46190278982262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e9ccbc6bd7b33%3A0xc4d820dd37782e62!2sCr%C3%A9deiles!5e0!3m2!1sen!2sch!4v1454702907143"
+                            <iframe title="Plan d'accès pour Crédeilles" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6536.675380871455!2d6.849338535090632!3d46.46190278982262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e9ccbc6bd7b33%3A0xc4d820dd37782e62!2sCr%C3%A9deiles!5e0!3m2!1sen!2sch!4v1454702907143"
                                     width="100%" height="450" frameBorder="0" allowFullScreen/>
                         </div>
                     </div>
