@@ -93,7 +93,7 @@ export default class Nav extends React.Component {
                     <div className="navbar-nav d-flex justify-content-center w-100">
                         {this.state.entries.map(function (t) {
                             return (
-                                <li className="nav-item NavEntry">
+                                <li className="nav-item NavEntry" key={t.url}>
                                     <Link to={t.url} className="nav-link">
                                         {this.state.scope === 'private' ? <i className={t.icon} title={t.title}></i> : <span>{t.title}</span>}
                                     </Link>

@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom';
+import CF from "../CustomFunctions";
 
 export default class ArticleCard extends React.Component {
 
@@ -11,7 +12,7 @@ export default class ArticleCard extends React.Component {
     render() {
         return (
             <div className="card">
-                <img className="card-img-top" src="images/membres/artotragos.png" alt="Artotragos"/>
+                <img className="card-img-top" src={CF.imgFolder+"/membres/artotragos.png"} alt="Artotragos"/>
                 <div className="card-body">
                     <h4 className="card-title">
                         <span className="title mr-2">Mon article</span>

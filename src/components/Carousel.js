@@ -1,5 +1,6 @@
 import React from "react";
 import "./Carousel.css";
+import CF from "../CustomFunctions";
 
 export default class Carousel extends React.Component {
 
@@ -13,13 +14,13 @@ export default class Carousel extends React.Component {
             <div id="Carousel" className="carousel slide bg-dark" data-ride="carousel" data-interval="false">
                 <div className="carousel-inner">
                     <div className="carousel-item text-center active">
-                        <img src="images/membres/artotragos.png" alt="First slide"/>
+                        <img src={CF.imgFolder+"/membres/artotragos.png"} alt="First slide"/>
                     </div>
                     <div className="carousel-item text-center">
-                        <img src="images/membres/darbo.png" alt="Second slide"/>
+                        <img src={CF.imgFolder+"/membres/darbo.png"} alt="Second slide"/>
                     </div>
                     <div className="carousel-item text-center">
-                        <img src="images/membres/kurmida.png" alt="Third slide"/>
+                        <img src={CF.imgFolder+"/membres/kurmida.png"} alt="Third slide"/>
                     </div>
                 </div>
                 <a className="carousel-control-prev" href="#Carousel" role="button" data-slide="prev">

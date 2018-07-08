@@ -1,11 +1,12 @@
 import React from 'react';
+import CF from "../../CustomFunctions";
 
 export default class Home extends React.Component {
     render() {
         return (
             <div className="row">
                 <div className="col-12 my-3">
-                    <img src="images/divers/groupPhoto.png" className="img-fluid" alt="Viviskes"/>
+                    <img src={CF.imgFolder+"/divers/groupPhoto.png"} className="img-fluid" alt="Viviskes"/>
                 </div>
                 <div className="col-md-8">
                     <h1>Présentation</h1>

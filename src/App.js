@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
 import Loadable from 'react-loadable';
+import CF from './CustomFunctions';
 import './App.css';
 import Nav from "./components/Nav";
 
 const Loading = () => <div>Loading...</div>;
+
+let NavBar = Loadable({
+    loader: () => import('./components/Nav'),
+    loading: Loading,
+});
 
 let publicPages = {
     Home: Loadable({
@@ -48,6 +54,17 @@ let privatePages = {
     }),
 };
 
+let adminPages = {
+    Partners: Loadable({
+        loader: () => import('./routes/admin/Partners'),
+        loading: Loading,
+    }),
+    Articles: Loadable({
+        loader: () => import('./routes/admin/Articles'),
+        loading: Loading,
+    })
+};
+
 class App extends Component {
 
     constructor(props) {
@@ -65,29 +82,43 @@ class App extends Component {
             <Router>
                 <div id="App">
                     <header className="text-center p-3">
-                        <img src="images/banner.svg" alt="Bannière"/>
+                        <img src={CF.imgFolder + "/banner.svg"} alt="Bannière"/>
                     </header>
-                    <Nav scope={this.state.scope} loggedIn={this.state.loggedIn} admin={this.state.admin}/>
+                    {/* --- Nav bar --- */}
+                    <Switch>
+                        <Route path="/intranet" component={() => <Nav scope="private" admin={this.state.admin} />} />
+                        <Route path="/" component={() => <Nav scope="public" admin={this.state.admin} />} />
+                    </Switch>
+
+                    {/* --- Content --- */}
                     <section className="pb-3">
                         <div className="container">
                             <Switch>
                                 {/* ---------- Public pages ----------*/}
                                 <Route exact path="/" component={publicPages.Home}/>
-                                <Route path="/association" component={publicPages.Association}/>
-                                <Route path="/histoire-vivante" component={publicPages.Blog}/>
-                                <Route path="/galerie" component={publicPages.Gallery}/>
-                                <Route path="/contact" component={publicPages.Contact}/>
-                                {/* ---------- Public pages ----------*/}
-                                <Route path="/intranet/membres" component={privatePages.Members}/>
-                                <Route path="/intranet/calendrier" component={privatePages.Calendar}/>
-                                <Route path="/intranet/forum" component={privatePages.Forum}/>
-                                <Route path="/intranet/profil" component={privatePages.Profile}/>
+                                <Route exact path="/association" component={publicPages.Association}/>
+                                <Route exact path="/histoire-vivante" component={publicPages.Blog}/>
+                                <Route exact path="/galerie" component={publicPages.Gallery}/>
+                                <Route exact path="/contact" component={publicPages.Contact}/>
+
+                                {/* ---------- Private pages ----------*/}
+                                <Route exact path="/intranet" render={() => (
+                                    <Redirect to="/intranet/forum"/>
+                                )}/>
+                                <Route exact path="/intranet/membres" component={privatePages.Members}/>
+                                <Route exact path="/intranet/calendrier" component={privatePages.Calendar}/>
+                                <Route exact path="/intranet/forum" component={privatePages.Forum}/>
+                                <Route exact path="/intranet/profil" component={privatePages.Profile}/>
+
+                                {/* ---------- Admin pages ----------*/}
+                                <Route exact path="/intranet/partenaires" component={adminPages.Partners}/>
+                                <Route exact path="/intranet/articles" component={adminPages.Articles}/>
                             </Switch>
                         </div>
                     </section>
                     <footer className="text-center">
                         <div id="footerImage">
-                            <img src="images/footer.png" height="200" alt="Footer"/>
+                            <img src={CF.imgFolder + "/footer.png"} height="200" alt="Footer"/>
                         </div>
                         <div id="footerContent">
                             <div className="container">
@@ -103,7 +134,8 @@ class App extends Component {
                                     <div className="col-md-6">
                                         <h4>Liens utiles</h4>
                                         <p>
-                                            <Link to="/intranet/forum">Intranet</Link>
+                                            <Link to="/">Site public</Link><br/>
+                                            <Link to="/intranet">Intranet</Link>
                                         </p>
                                     </div>
                                 </div>
