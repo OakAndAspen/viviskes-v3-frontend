@@ -7,11 +7,6 @@ import Nav from "./components/Nav";
 
 const Loading = () => <div>Loading...</div>;
 
-let NavBar = Loadable({
-    loader: () => import('./components/Nav'),
-    loading: Loading,
-});
-
 let publicPages = {
     Home: Loadable({
         loader: () => import('./routes/public/Home'),
@@ -71,7 +66,6 @@ class App extends Component {
         super(props);
 
         this.state = {
-            scope: 'private',
             loggedIn: false,
             admin: true
         };
