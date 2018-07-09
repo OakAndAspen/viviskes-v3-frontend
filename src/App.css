@@ -1,10 +1,18 @@
 a {
-    color: #cdb8a1;
+    color: #A08E6F;
 }
 
 a:hover {
-    color: #cdb8a1;
+    color: #A08E6F;
     text-decoration: underline;
+}
+
+table * {
+    border-color: #AAAAAA !important;
+}
+
+table thead th {
+    border-top: 0px !important;
 }
 
 header img {
@@ -21,5 +29,5 @@ footer #footerImage {
 
 footer #footerContent{
     background-color: black;
-    color: #cdb8a1;
+    color: #A08E6F;
 }
