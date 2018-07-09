@@ -1,8 +1,29 @@
 import React from 'react';
 import "./Blog.css";
 import ArticleCard from "../../components/ArticleCard";
+import CF from "../../CustomFunctions";
+import $ from "jquery";
 
 export default class Blog extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            'articles': []
+        };
+        this.render();
+    }
+
+    componentDidMount() {
+        $.ajax({
+            url: CF.apiUrl + '/articles',
+            context: this,
+        }).done(function (data) {
+            this.setState({
+                'articles': CF.orderBy(data, "creationDate", false)
+            });
+        });
+    }
+
     render() {
         return (
             <div className="row pt-4">
@@ -24,20 +45,14 @@ export default class Blog extends React.Component {
                     <span className="badge badge-info mr-2">Musique</span>
                 </div>
                 <div className="col-lg-9">
-                    <p>/api/articles</p>
                     <div className="row">
-                        <div className="col-md-6 pb-2">
-                            <ArticleCard/>
-                        </div>
-                        <div className="col-md-6">
-                            <ArticleCard/>
-                        </div>
-                        <div className="col-md-6">
-                            <ArticleCard/>
-                        </div>
-                        <div className="col-md-6">
-                            <ArticleCard/>
-                        </div>
+                        {this.state.articles.map(function (a) {
+                            return (
+                                <div className="col-md-6 pb-2">
+                                    <ArticleCard title={a.title} creationDate={a.creationDate}/>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </div>
