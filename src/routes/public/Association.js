@@ -1,7 +1,28 @@
 import React from 'react';
 import "../../components/CustomTab.css"
+import CF from "../../CustomFunctions";
+import $ from "jquery";
 
 export default class Association extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            'members': []
+        };
+        this.render();
+    }
+
+    componentDidMount() {
+        $.ajax({
+            url: CF.apiUrl + '/users',
+            context: this,
+        }).done(function (data) {
+            this.setState({
+                'members': CF.orderBy(data, "celtName")
+            });
+        });
+    }
+
     render() {
         return (
             <div className="row">
@@ -65,7 +86,20 @@ export default class Association extends React.Component {
                                 capacité de développer sa passion pour l’Antiquité celtique.</p>
                         </div>
                         <div className="tab-pane" id="members">
-                            <p>/api/users</p>
+                            <div className="col-md-4">
+                                <table className="table text-uppercase">
+                                    <tbody>
+                                    {this.state.members.map(function (m) {
+                                        if (!m.celtName || m.celtName.includes('Admin')) return null;
+                                        return (
+                                            <tr key={m.id}>
+                                                <td>{m.celtName}</td>
+                                            </tr>
+                                        );
+                                    })}
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
