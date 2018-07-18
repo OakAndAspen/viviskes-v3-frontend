@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 import CF from "../CustomFunctions";
+import moment from "moment/moment";
 
 export default class AlbumCard extends React.Component {
 
@@ -15,9 +16,9 @@ export default class AlbumCard extends React.Component {
                 <img className="card-img-top" src={CF.imgFolder+"/membres/artotragos.png"} alt="Un évènement"/>
                 <div className="card-body">
                     <h4 className="card-title">
-                        <span className="title mr-2">Un évènement</span>
+                        <span className="title mr-2">{this.state.title}</span>
                         <small className="text-muted">
-                            <span className="mr-2">05.03.2018</span>
+                            <span className="mr-2">{moment(this.state.startDate).format("DD.MM.YYYY")}</span>
                         </small>
                     </h4>
                     <p className="card-text">Some quick example text to build on the card title and make up

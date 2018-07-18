@@ -1,7 +1,7 @@
 import React from 'react';
 import CF from '../../CustomFunctions';
 import $ from 'jquery';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 
 export default class Partners extends React.Component {
     constructor(props) {

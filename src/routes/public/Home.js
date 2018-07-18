@@ -28,15 +28,16 @@ export default class Home extends React.Component {
             url: CF.apiUrl + '/events',
             context: this,
         }).done(function (data) {
-            let events = CF.orderBy(data, "startDate", false)
+            let events = CF.orderBy(data, "startDate", false);
             let upcomingEvents = [];
             let recentEvents = [];
-            events.map(function (e) {
+            $.each(events, function (i, e) {
                 let now = moment();
                 let date = moment(e.startDate);
                 if (date.isAfter(now) && e.public) upcomingEvents.push(e);
                 if (date.isBefore(now) && e.public && recentEvents.length < 5) recentEvents.push(e);
             });
+
             this.setState({
                 'upcomingEvents': upcomingEvents,
                 'recentEvents': recentEvents
@@ -53,11 +54,9 @@ export default class Home extends React.Component {
                 <div className="col-md-8">
                     <div className="border border-secondary rounded p-3 mb-3">
                         <h1>Présentation</h1>
-
                         <p>Si nous devions résumer en une seule question tout ce qui motive les quelques quarante
                             membres de
                             l’association Viviskes, cela serait : comment vivaient les Celtes ?</p>
-
                         <p>Cette question, l’association d’anthropologie guerrière Viviskes essaie d’y répondre en
                             adoptant
                             une approche pratique basée sur l’expérimentation, tout en profitant des lumières des
