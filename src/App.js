@@ -43,6 +43,10 @@ let privatePages = {
         loader: () => import('./routes/private/Forum'),
         loading: Loading,
     }),
+    Topic: Loadable({
+        loader: () => import('./routes/private/Topic'),
+        loading: Loading,
+    }),
     Profile: Loadable({
         loader: () => import('./routes/private/Profile'),
         loading: Loading,
@@ -102,6 +106,7 @@ class App extends Component {
                                 <Route exact path="/intranet/membres" component={privatePages.Members}/>
                                 <Route exact path="/intranet/calendrier" component={privatePages.Calendar}/>
                                 <Route exact path="/intranet/forum" component={privatePages.Forum}/>
+                                <Route path="/intranet/forum/:id" component={privatePages.Topic}/>
                                 <Route exact path="/intranet/profil" component={privatePages.Profile}/>
 
                                 {/* ---------- Admin pages ----------*/}

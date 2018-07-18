@@ -120,8 +120,11 @@ export default class Home extends React.Component {
                                 return (
                                     <tr key={p.id}>
                                         <td><span className="mr-3">{p.name}</span></td>
-                                        <td>{p.link ? <a href={p.link} title={p.link}><i
-                                            className="fas fa-external-link-alt"></i></a> : null}</td>
+                                        <td>
+                                            {p.link ? <a href={p.link} title={p.link}>
+                                                <i className="fas fa-external-link-alt"></i>
+                                            </a> : null}
+                                        </td>
                                     </tr>
                                 );
                             })}
