@@ -67,7 +67,7 @@ export default class Forum extends React.Component {
                         {this.state.topics.map(function (t, i) {
                             if ((this.state.currentSel == null && i < 6) || (parseInt(this.state.currentSel, 10) === parseInt(t.category, 10))) {
                                 return (
-                                    <Link to={'intranet/forum/'+t.id} className="list-group-item d-flex" key={t.id} category={t.category}>
+                                    <Link to={'/intranet/forum/'+t.id} className="list-group-item d-flex" key={t.id} category={t.category}>
                                         <div className="col-2">
                                             <span className="badge badge-info mr-2">Non lu</span>
                                         </div>

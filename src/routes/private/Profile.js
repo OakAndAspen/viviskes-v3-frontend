@@ -49,7 +49,7 @@ export default class Profile extends React.Component {
                 <div className="col-md-4">
                     {/* Image de profil */}
                     <h2>Photo de profil</h2>
-                    <img src={CF.imgFolder+"/membres/artotragos.png"} className="img-fluid mb-3"/>
+                    <img src={CF.imgFolder+"/membres/artotragos.png"} className="img-fluid mb-3" alt="Profil"/>
                     <div className="custom-file">
                         <input type="file" className="custom-file-input" id="customFile" lang="fr"/>
                         <label className="custom-file-label" htmlFor="customFile">Choisir une nouvelle photo</label>
